@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<head>
+    <h3>Assistant Registration Forumlar</h3>
+</head>
+
+{% endblock %}
+
+{% block body %}
+<form action='/assistants' method="POST" enctype="multipart/form-data"> 
+        <br>
+        <div class="form-group">
+            <h5>
+                <label for="exampleFormControlINput1">First name:</label>
+            </h5>
+                <input type="text" name="first_name" id="first_name"
+                class="form-control" id="exampleFormControlInput1" placeholder="insert first name" required>
+                <br>
+            <h5>
+                <label>Last name:</label>
+            </h5>
+                <input type="text" name="last_name" id="last_name" class="form-control" id="exampleFormControlInput1" placeholder="insert last name" required>
+            <br>
+            <h5>
+                <label>Email:</label>
+            </h5>   
+                <input type="email" name="email_address" id="email_address" class="form-control" id="exampleFormControlInput1" placeholder="insert email_address" required>
+            <br>
+            <div class="form-group">
+                <h5>
+                    <label for="exampleFormControlSelect1">Job name:</label> 
+                </h5>
+                    <select class="custom-select" class="form-control"
+                    id="exampleFormControlSelect1" name='job_id' required>
+                    <option value="">Pick your job name</option>
+                        {% for job in jobs %}
+                            <option value="{{ job.id }}">
+                        {{ job.title }}
+                            </option>
+                        {% endfor %}
+                    </select> 
+            <div class="invalid-feedback">Please choose job name</div>
+            <div class="valid-feedback">Job name is valid</div>
+            </div>
+            <h5>
+                <label for="exampleFormControlFile1">Upload picture:</label>
+            </h5>    
+            <h10>
+                <label style="color:blue">Not choosing any file will casue file to generate automaticly</label>
+            </h10>
+            <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input"
+                        id="validatedCustomFile" aria-describedby="inputGroupFileAddon04"
+                        name = "inputfile">
+                        <label class="custom-file-label" for="validatedCustomFile">Choose picture</label>
+                        <div class="invalid-feedback">Please choose picture</div>
+                        <div class="valid-feedback">Picture is valid</div>
+                    </div>
+            </div>
+            <br>
+            <input type='SUBMIT' value="Save" class="btn btn-primary mb-2">    
+</form>
+
+{% endblock %}

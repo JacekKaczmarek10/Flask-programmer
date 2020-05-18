@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<head>
+    <h3>Assistant Registration Update Forumlar</h3>
+</head>
+
+{% endblock %}
+
+{% block body %}
+<script>
+    function updateAssistant() {
+        
+        id = '{{ assistant_job.0.0.id }}';
+        console.log(id);
+        url = window.location.origin + '/assistants/' + id;
+        fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify({
+                'first_name' : document.getElementById('first_name').value,
+                'last_name' : document.getElementById('last_name').value,
+                'email_address' : document.getElementById('email_address').value,
+                'job_id' : document.getElementById('job_id').value,
+            }),
+            headers: {
+            'Content-Type': 'application/json'
+            },
+    })
+    .then(res => res.json())
+    .then(data => location.replace(window.location.origin + '/assistants'));
+
+    return false;
+    };
+</script>
+
+<form onsubmit="return updateAssistant()">
+
+       {% for assistant, job in assistant_job %}    
+      <div class="form-group">
+            <label for="exampleFormControlINput1">First name:</label>
+            <input type="text" name="first_name" id="first_name" class="form-control" id="exampleFormControlInput1"
+             value="{{assistant.first_name}}" required>
+            <br>
+            <label>Lastname:</label>
+                <input type="text" name="last_name" id="last_name" class="form-control" id="exampleFormControlInput1"
+                value="{{assistant.last_name}}" required>
+            <br>
+            <label>Email:</label>
+                <input type="email" name="email_address" id="email_address" class="form-control" id="exampleFormControlInput1"
+                value="{{assistant.email_address}}" required>
+            <br>
+            <label for="exampleFormControlSelect1">Job name:</label> 
+            <select name='job_id' class="form-control" id="job_id" id="exampleFormControlSelect1"
+            value="{{assistant.job_id}}" required>
+                    <option value="{{ job.id}} ">
+                        {{job.title}}
+                    </option>
+                {% for job in jobs %}
+                    <option value="{{ job.id }}">
+                {{ job.title }}
+                    </option>
+                {% endfor %}
+            </select> 
+            <br>
+            <label for="exampleFormControlFile1">Upload picture:</label>
+                <input type = "file" name = "inputfile" class="form-control-file" id="exampleFormControlFile1">
+            <br>
+        </div>
+        {% endfor %}    
+        <input type="submit" name="Submit" value="Submit"/>  
+    </form>
+</div>
+
+
+
+
+{% endblock %}

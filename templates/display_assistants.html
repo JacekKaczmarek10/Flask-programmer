@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<script>
+    function deleteAssistant(id) {
+        fetch(document.baseURI + '/' + id, {
+            method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => location.replace(document.baseURI));
+    };
+</script>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Assistant Id</th>
+            <th>Job Id</th>
+            <th>First name</th>
+            <th>Last name</th> 
+            <th>Email address</th>
+            <th>Picture</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    {% for assistant, job, picture in assistants_jobs_pictures %}
+    <tbody>
+        <tr>
+            <td>{{ assistant.id }}</td>
+            <td>{{ job.title }}</td>
+            <td>{{ assistant.first_name }}</td>
+            <td>{{ assistant.last_name }}</td>
+            <td>{{ assistant.email_address }}</td>
+            <td>
+                <img src = "data:image/gif;base64,{{picture}}">
+            </td>
+            <td>
+                    <button type="button" class="btn btn-danger" onclick="deleteAssistant('{{ assistant.id }}')">Delete</button>     
+                    <a href="/assistants/update/{{assistant.id}}" class="btn btn-warning">Update</a>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+{% endblock %}

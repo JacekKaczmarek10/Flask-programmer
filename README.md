@@ -6,6 +6,10 @@ python app.py
 
 But first you need to import some things(in windows)
 In terminal:
+
+(Do if virtualenv is not activated):
+.\env\Scripts\activate.bat
+
 python -m pip install requests                                                                                                             
 
 pip3 install Flask
@@ -18,3 +22,5 @@ pip3 install pillow
 
 then finally:
 python app.py
+
+Now u should be able to open application in web browser.

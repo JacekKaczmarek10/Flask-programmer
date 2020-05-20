@@ -9,26 +9,9 @@ python app.py
 
 
 #########################################################################
+Type this before run
 
-But first you need to import some things(in windows)
-In terminal:
-(Do if virtualenv is not activated):
-
-.\env\Scripts\activate.bat
-
-python -m pip install requests  
-
-pip3 install Flask
-
-pip3 install Flask-SQLAlchemy
-
-pip3 install Flask-Migrate
-
-pip3 install pillow
-
-then finally:
-
-python app.py
+pip install -r requirements.txt 
 
 #########################################################################
 

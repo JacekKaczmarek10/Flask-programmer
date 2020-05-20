@@ -8,6 +8,7 @@ python app.py
 
 
 ##########################################################################
+
 But first you need to import some things(in windows)
 In terminal:
 (Do if virtualenv is not activated):

@@ -33,7 +33,7 @@ How to run it on linux:
 
 2. source env/bin/activate
 
-3. pip install -r requirements.txt
+3. pip3 install -r requirements.txt
 
 4. python3 -m flask db init
 

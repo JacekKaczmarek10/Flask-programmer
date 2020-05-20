@@ -1,26 +1,28 @@
 # flask-programmer
 Flask programmer task
 
-To run this application simply run in terminal in folder with program location:
+
+#########################################################################
+
+To run this application simply run in terminal in folder with program :
 python app.py
 
-But first you need to import some things(in windows)
-In terminal:
 
-(Do if virtualenv is not activated):
-.\env\Scripts\activate.bat
+#########################################################################
+Type this before run
 
-python -m pip install requests                                                                                                             
+pip install -r requirements.txt 
 
-pip3 install Flask
+#########################################################################
 
-pip3 install Flask-SQLAlchemy
+Seeding Database
 
-pip3 install Flask-Migrate
+to create database type in terminal:
+flask db_create
 
-pip3 install pillow
+to seed data base with 3 example assistants:
+flask db_seed
 
-then finally:
-python app.py
+to delete all data:
+flask db_drop
 
-Now u should be able to open application in web browser.

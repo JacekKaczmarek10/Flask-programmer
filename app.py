@@ -34,6 +34,8 @@ def db_drop_all():
 
 @app.cli.command('db_seed')
 def db_seed():
+    add_jobs_to_db()
+
     r = requests.get('https://randomuser.me/api')
     image_url = r.json()['results'][0]['picture']['thumbnail']
     x= requests.get(image_url).content

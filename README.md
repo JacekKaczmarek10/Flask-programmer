@@ -3,7 +3,7 @@ Flask programmer task
 
 
 ###############################################################################################
-To run this application simply run in terminal in folder with program location:
+To run this application simply run in terminal in folder with program :
 python app.py
 
 

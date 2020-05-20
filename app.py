@@ -1,9 +1,11 @@
 import requests
 import io
+import os
 import codecs
 import base64
 
 from flask import Flask, render_template, request, redirect, jsonify, send_file, send_from_directory
+from sqlalchemy import Column, Integer, String, Float
 from flask_sqlalchemy import SQLAlchemy
 from io import BytesIO
 from flask_migrate import Migrate
@@ -17,6 +19,57 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+
+@app.cli.command('db_create')
+def db_create():
+    db.create_all()
+    print('Database created!')
+
+@app.cli.command('db_drop')
+def db_drop_all():
+    db.drop_all()
+    print('Database dropped!')
+
+
+@app.cli.command('db_seed')
+def db_seed():
+    r = requests.get('https://randomuser.me/api')
+    image_url = r.json()['results'][0]['picture']['thumbnail']
+    x= requests.get(image_url).content
+    asisstant1 = Assistant(
+    job_id=20, 
+    first_name="Iza",
+    last_name="Piechowiak",
+    email_address="iza@gmail.com",
+    pic_name="image",
+    data=x)
+
+    asisstant2 = Assistant(
+    job_id=20, 
+    first_name="Janusz",
+    last_name="Kowalski",
+    email_address="janusz@gmail.com",
+    pic_name="image",
+    data=x)
+
+    asisstant3 = Assistant(
+    job_id=20, 
+    first_name="Jacek",
+    last_name="Kaczmarek",
+    email_address="kaczmarek.jacek10@gmail.com",
+    pic_name="image",
+    data=x)
+
+
+    db.session.add(asisstant1)
+    db.session.add(asisstant2)
+    db.session.add(asisstant3)
+    db.session.commit()
+    print('Database seeded!')
+
+
+
 
 class Job(db.Model):
     id = db.Column(db.Integer, primary_key=True)

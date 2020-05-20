@@ -27,6 +27,7 @@ pip3 install pillow
 then finally:
 
 python app.py
+
 #######################################################################
 Seeding Database
 

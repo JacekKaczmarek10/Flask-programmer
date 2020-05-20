@@ -31,7 +31,7 @@ How to run it on linux:
 
 1. virtualenv env
 
-2. python -m source/bin/activate
+2. source env/bin/activate
 
 3. pip install -r requirements.txt
 

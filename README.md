@@ -4,8 +4,9 @@ Flask programmer task
 
 #########################################################################
 
-How to run it on Windows:
-In terminal
+How to run it on Windows
+
+In terminal:
 
 1. virtualenv env
 
@@ -27,7 +28,11 @@ In terminal
 
 Now you should be able to open url  http://127.0.0.1:5000/ in your web browser.
 
-How to run it on linux:
+############################################################################################
+
+How to run it on linux
+
+In terminal:
 
 1. virtualenv env
 

@@ -5,9 +5,11 @@ I created documentation file which is in progam folder: Documentation.pdf
 
 #########################################################################
 
-How to run it on Windows
-
 First download project and unzip it to folder. I suggest using visual studio code.
+
+#########################################################################
+
+How to run it on Windows
 
 In terminal:
 

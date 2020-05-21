@@ -59,3 +59,7 @@ In terminal:
 
 Now you should be able to open url  http://127.0.0.1:5000/ in your web browser.
 
+##############################################################################################
+
+After this commands database will be created and initial assistnatns will be seeded.
+

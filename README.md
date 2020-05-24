@@ -5,13 +5,13 @@ I created documentation file which is in progam folder: Documentation.pdf
 
 #########################################################################
 
-First download project and unzip it to folder. I suggest using visual studio code.
+First download project and unzip it to folder. Open folder in programming environment. I suggest using visual studio code.
 
 #########################################################################
 
 How to run it on Windows
 
-In terminal:
+In terminal(location in folder with program):
 
 1. virtualenv env
 
